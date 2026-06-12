@@ -1,0 +1,6 @@
+{
+  "name": "Módulo de Alertas de Prescripción y Plazos",
+  "description": "Sistema de alertas para calificar casos fiscales, determinar la vigencia de la acción penal, calcular prescripción ordinaria/extraordinaria y controlar plazos de investigación conforme al Código Penal y Procesal Penal del Perú.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
