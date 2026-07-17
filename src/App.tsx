@@ -10,8 +10,8 @@ import CaseAnalyzer from './components/CaseAnalyzer';
 import CaseList from './components/CaseList';
 import LegalAssistant from './components/LegalAssistant';
 import NotificationDraft from './components/NotificationDraft';
-import FigmaExporterModal from './components/FigmaExporterModal';
-import { Scale, Clock, Sparkles, FileText, ChevronRight, Gavel, HelpCircle, Figma } from 'lucide-react';
+import ProjectManagementReport from './components/ProjectManagementReport';
+import { Scale, Clock, Sparkles, FileText, ChevronRight, Gavel, HelpCircle, Briefcase } from 'lucide-react';
 
 const SEED_CASES: CaseData[] = [
   {
@@ -85,11 +85,8 @@ export default function App() {
   const [cases, setCases] = useState<CaseData[]>(SEED_CASES);
   const [selectedCase, setSelectedCase] = useState<CaseData>(SEED_CASES[0]);
 
-  // Tab controller for the right column panel: AI vs Automatic Cédula Notificación
-  const [activeRightTab, setActiveRightTab] = useState<'ai' | 'cedula'>('ai');
-
-  // Figma modal controller
-  const [isFigmaModalOpen, setIsFigmaModalOpen] = useState(false);
+  // Tab controller for the right column panel: AI vs Automatic Cédula Notificación vs Project Management Report
+  const [activeRightTab, setActiveRightTab] = useState<'ai' | 'cedula' | 'gestion'>('ai');
 
   // Real-time local time clock
   const [currentTime, setCurrentTime] = useState<string>('');
@@ -97,18 +94,27 @@ export default function App() {
   useEffect(() => {
     // Clock tick
     const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleString('es-PE', { 
-        timeZone: 'America/Lima',
-        hour12: false, 
-        weekday: 'short',
-        day: '2-digit', 
-        month: 'short', 
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      }));
+      try {
+        const now = new Date();
+        setCurrentTime(now.toLocaleString('es-PE', { 
+          timeZone: 'America/Lima',
+          hour12: false, 
+          weekday: 'short',
+          day: '2-digit', 
+          month: 'short', 
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        }));
+      } catch (err) {
+        console.error("Timezone configuration 'America/Lima' not supported, using fallback.", err);
+        try {
+          setCurrentTime(new Date().toLocaleString('es-PE', { hour12: false }));
+        } catch (innerErr) {
+          setCurrentTime(new Date().toISOString());
+        }
+      }
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -280,19 +286,11 @@ export default function App() {
             </p>
           </div>
 
-          {/* Time & Agency Metadata / Figma Button */}
+          {/* Time & Agency Metadata */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-            <button
-              onClick={() => setIsFigmaModalOpen(true)}
-              className="bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs px-4 py-3 sm:py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all border border-rose-500/20 tracking-wide shrink-0 cursor-pointer"
-              id="export-figma-btn"
-            >
-              <Figma className="w-4 h-4 fill-white shrink-0" />
-              <span>Exportar a Figma</span>
-            </button>
             <div className="bg-slate-800/80 border border-slate-700/60 rounded-xl px-4 py-2.5 flex items-center gap-3.5 shadow-inner">
             <div className="text-right shrink-0">
-              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-0.5">Reloj Oficial Judicial</div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-0.5">Reloj Oficial</div>
               <div className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1.5" id="lima-clock">
                 <Clock className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
                 {currentTime || 'Sincronizando hora...'}
@@ -327,10 +325,10 @@ export default function App() {
           <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col flex-1">
             
             {/* Tabs Header */}
-            <div className="border-b border-slate-200 bg-slate-50 p-1 flex">
+            <div className="border-b border-slate-200 bg-slate-50 p-1 flex gap-1">
               <button
                 onClick={() => setActiveRightTab('ai')}
-                className={`flex-1 py-2.5 text-xs font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 transition ${
+                className={`flex-1 py-2 text-[11px] font-semibold rounded-lg inline-flex items-center justify-center gap-1 transition ${
                   activeRightTab === 'ai' 
                     ? 'bg-indigo-600 text-white shadow-sm' 
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -338,11 +336,11 @@ export default function App() {
                 id="tab-ai-btn"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                Informe de Acción Penal de IA
+                Informe Penal IA
               </button>
               <button
                 onClick={() => setActiveRightTab('cedula')}
-                className={`flex-1 py-2.5 text-xs font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 transition ${
+                className={`flex-1 py-2 text-[11px] font-semibold rounded-lg inline-flex items-center justify-center gap-1 transition ${
                   activeRightTab === 'cedula' 
                     ? 'bg-slate-900 text-white shadow-sm' 
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -350,13 +348,27 @@ export default function App() {
                 id="tab-cedula-btn"
               >
                 <FileText className="w-3.5 h-3.5" />
-                Cédula de Alerta de Plazos
+                Cédula de Plazos
+              </button>
+              <button
+                onClick={() => setActiveRightTab('gestion')}
+                className={`flex-1 py-2 text-[11px] font-semibold rounded-lg inline-flex items-center justify-center gap-1 transition ${
+                  activeRightTab === 'gestion' 
+                    ? 'bg-emerald-600 text-white shadow-sm' 
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
+                id="tab-gestion-btn"
+              >
+                <Briefcase className="w-3.5 h-3.5" />
+                Informe Gestión
               </button>
             </div>
 
             {/* Render selected output workspace */}
             <div className="flex-1">
-              {selectedCase && currentPrescripcion && currentPlazo ? (
+              {activeRightTab === 'gestion' ? (
+                <ProjectManagementReport />
+              ) : selectedCase && currentPrescripcion && currentPlazo ? (
                 activeRightTab === 'ai' ? (
                   <LegalAssistant 
                     currentCase={selectedCase}
@@ -393,17 +405,6 @@ export default function App() {
           onNewCase={handleNewCase}
         />
       </footer>
-
-      {/* Figma Exporter and Interactive Prototyping Modal */}
-      {selectedCase && currentPrescripcion && currentPlazo && (
-        <FigmaExporterModal
-          isOpen={isFigmaModalOpen}
-          onClose={() => setIsFigmaModalOpen(false)}
-          currentCase={selectedCase}
-          prescripcion={currentPrescripcion}
-          plazo={currentPlazo}
-        />
-      )}
 
     </div>
   );

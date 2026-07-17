@@ -1,0 +1,218 @@
+<div class="max-w-6xl mx-auto p-6 space-y-8">
+  <!-- Cabecera -->
+  <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold rounded border border-indigo-200">MPFN - SIA-CT V2</span>
+        <span class="text-xs text-slate-500 font-mono">INTEL-IDEA-COMPATIBLE</span>
+      </div>
+      <h1 class="text-xl font-bold text-slate-900 mt-1">Módulo de Gestión y Valoración de Elementos de Convicción</h1>
+      <p class="text-xs text-slate-500 mt-0.5">Control inteligente, clasificación automática y evaluación de pertinencia, conducencia y utilidad bajo el estándar peruano.</p>
+    </div>
+    
+    <!-- Selector de carpetas -->
+    <div class="flex gap-2">
+      <button 
+        *ngFor="let c of cases" 
+        (click)="onSelectCase(c)"
+        [ngClass]="selectedCase?.id === c.id ? 'bg-indigo-600 text-white shadow-md' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'"
+        class="px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200">
+        {{ c.codCarpeta }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenedor Principal Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" *ngIf="selectedCase">
+    
+    <!-- Columna Izquierda: Formulario de Valoración -->
+    <div class="lg:col-span-1 bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
+      <div class="border-b border-slate-100 pb-3">
+        <h2 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+          Registrar Elemento de Convicción
+        </h2>
+        <p class="text-[11px] text-slate-500">Clasificación inteligente según el texto fáctico ingresado.</p>
+      </div>
+
+      <!-- Descripción -->
+      <div class="space-y-1.5">
+        <label class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Descripción del Elemento</label>
+        <textarea 
+          [(ngModel)]="nuevaDescripcion" 
+          (ngModelChange)="onDescripcionChange()"
+          placeholder="Ej. Declaración testimonial de Juan Pérez, Acta de incautación de vehículo, Informe pericial contable, etc..."
+          rows="3" 
+          class="w-full text-xs px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 resize-none"></textarea>
+      </div>
+
+      <!-- Tipo de Elemento -->
+      <div class="space-y-1.5">
+        <label class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Clasificación de Elemento (IA sugerido)</label>
+        <select 
+          [(ngModel)]="nuevoTipo" 
+          class="w-full text-xs px-3 py-2 border border-slate-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500">
+          <option value="DOCUMENTALES">DOCUMENTALES (Contratos, correos, facturas)</option>
+          <option value="TESTIMONIALES">TESTIMONIALES (Testigos, agraviados, peritos)</option>
+          <option value="PERICIALES">PERICIALES (Dictámenes, auditorías forenses)</option>
+          <option value="ACTAS">ACTAS (Actas policiales, allanamientos, incautaciones)</option>
+          <option value="INFORMES_TECNICOS">INFORMES TÉCNICOS (SBS, Contraloría, SUNAT)</option>
+        </select>
+      </div>
+
+      <!-- Criterios de Valoración -->
+      <div class="space-y-2 bg-slate-50 p-3.5 border border-slate-200 rounded-lg">
+        <span class="text-[11px] font-bold text-slate-800 uppercase tracking-wider block">Criterios de Valoración (Triple Test)</span>
+        
+        <!-- Pertinencia -->
+        <label class="flex items-center gap-2 cursor-pointer py-1">
+          <input type="checkbox" [(ngModel)]="pertinente" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 h-4 w-4">
+          <div>
+            <span class="text-xs font-semibold text-slate-700">Pertinencia</span>
+            <p class="text-[9px] text-slate-500 leading-none">Vinculación fáctica directa con la imputación penal.</p>
+          </div>
+        </label>
+
+        <!-- Conducencia -->
+        <label class="flex items-center gap-2 cursor-pointer py-1">
+          <input type="checkbox" [(ngModel)]="conducente" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 h-4 w-4">
+          <div>
+            <span class="text-xs font-semibold text-slate-700">Conducencia</span>
+            <p class="text-[9px] text-slate-500 leading-none">Licitud legal y cumplimiento formal de garantías.</p>
+          </div>
+        </label>
+
+        <!-- Utilidad -->
+        <label class="flex items-center gap-2 cursor-pointer py-1">
+          <input type="checkbox" [(ngModel)]="util" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500/20 h-4 w-4">
+          <div>
+            <span class="text-xs font-semibold text-slate-700">Utilidad</span>
+            <p class="text-[9px] text-slate-500 leading-none">Aporte fáctico indispensable para certeza procesal.</p>
+          </div>
+        </label>
+      </div>
+
+      <!-- Justificación -->
+      <div class="space-y-1.5">
+        <label class="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">Análisis de Justificación del Aporte</label>
+        <textarea 
+          [(ngModel)]="analisisJustificacion" 
+          placeholder="Escriba la justificación jurídica o fáctica del elemento..."
+          rows="2" 
+          class="w-full text-xs px-3 py-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 resize-none"></textarea>
+      </div>
+
+      <!-- Botón agregar -->
+      <button 
+        (click)="agregarElemento()"
+        [disabled]="!nuevaDescripcion"
+        class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold rounded-lg shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        Registrar e Indexar Elemento
+      </button>
+    </div>
+
+    <!-- Columna Derecha: Resumen de Carpeta y Elementos Registrados -->
+    <div class="lg:col-span-2 space-y-6">
+      
+      <!-- Detalle Carpeta -->
+      <div class="bg-slate-900 text-white border border-slate-800 rounded-xl p-5 shadow-sm space-y-3">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-2.5">
+          <div>
+            <span class="text-[10px] text-emerald-400 font-mono font-bold tracking-widest uppercase">DETALLE DE CARPETA SELECCIONADA</span>
+            <h3 class="text-base font-bold text-white">{{ selectedCase.codCarpeta }}</h3>
+          </div>
+          <span class="px-2.5 py-1 bg-slate-800 border border-slate-700 rounded-md text-xs font-semibold text-slate-300">
+            Pena: {{ selectedCase.penaMinima }} - {{ selectedCase.penaMaxima }} años
+          </span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 text-xs">
+          <div>
+            <p class="text-slate-400 font-semibold text-[10px]">DELITO IMPUTADO</p>
+            <p class="text-white font-medium mt-0.5">{{ selectedCase.delito }}</p>
+          </div>
+          <div>
+            <p class="text-slate-400 font-semibold text-[10px]">INVESTIGADO (S)</p>
+            <p class="text-white font-medium mt-0.5">{{ selectedCase.imputado }}</p>
+          </div>
+          <div>
+            <p class="text-slate-400 font-semibold text-[10px]">AGRAVIADO (S)</p>
+            <p class="text-white font-medium mt-0.5">{{ selectedCase.agraviado }}</p>
+          </div>
+          <div>
+            <p class="text-slate-400 font-semibold text-[10px]">TIPO DE PROCESO</p>
+            <p class="text-white font-medium mt-0.5">
+              <span *ngIf="selectedCase.isComplejo" class="text-amber-300">Complejo</span>
+              <span *ngIf="selectedCase.isCrimenOrganizado" class="text-rose-400">Crimen Organizado</span>
+              <span *ngIf="!selectedCase.isComplejo && !selectedCase.isCrimenOrganizado" class="text-emerald-300">Común / Simple</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="text-xs border-t border-slate-800 pt-3">
+          <p class="text-slate-400 font-semibold text-[10px]">SINOPSIS FÁCTICA</p>
+          <p class="text-slate-300 italic mt-1 leading-relaxed">{{ selectedCase.resumenFactico }}</p>
+        </div>
+      </div>
+
+      <!-- Listado de Elementos Registrados -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
+        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Acervo de Elementos de Convicción Activos</h3>
+            <p class="text-[11px] text-slate-500">Valoración y suficiencia fáctica sugerida para la teoría del caso.</p>
+          </div>
+          <span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-xs font-bold rounded-full">
+            Total: {{ selectedCase.elementosConviccion?.length || 0 }}
+          </span>
+        </div>
+
+        <div *ngIf="!selectedCase.elementosConviccion || selectedCase.elementosConviccion.length === 0" class="text-center py-8">
+          <svg class="w-10 h-10 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0V9a2 2 0 00-2-2H6a2 2 0 00-2 2v4.5m12+3.5h.01M5.071 19.071a9 9 0 1112.728 0"></path></svg>
+          <p class="text-xs text-slate-400 font-medium">No se han registrado elementos de convicción para esta carpeta fiscal.</p>
+        </div>
+
+        <!-- Cards de Elementos -->
+        <div class="space-y-3" *ngIf="selectedCase.elementosConviccion">
+          <div 
+            *ngFor="let ec of selectedCase.elementosConviccion"
+            class="p-4 border border-slate-150 rounded-xl hover:border-slate-300 transition-all duration-150 bg-slate-50/50 space-y-2">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 bg-slate-200 border border-slate-300 text-slate-700 rounded text-[9px] font-bold">
+                  {{ ec.tipoElemento }}
+                </span>
+                
+                <!-- Indicators -->
+                <div class="flex gap-1">
+                  <span [ngClass]="ec.pertinente ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'" class="px-1 text-[8px] font-bold rounded">P</span>
+                  <span [ngClass]="ec.conducente ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'" class="px-1 text-[8px] font-bold rounded">C</span>
+                  <span [ngClass]="ec.util ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'" class="px-1 text-[8px] font-bold rounded">U</span>
+                </div>
+              </div>
+
+              <!-- Suficiencia Status Badge -->
+              <span 
+                [ngClass]="{
+                  'bg-emerald-100 text-emerald-800 border border-emerald-200': ec.resultadoValoracion === 'SUFICIENTE',
+                  'bg-rose-100 text-rose-800 border border-rose-200': ec.resultadoValoracion === 'INSUFICIENTE',
+                  'bg-amber-100 text-amber-800 border border-amber-200': ec.resultadoValoracion === 'INVESTIGACION_ADICIONAL'
+                }"
+                class="px-2.5 py-0.5 rounded text-[10px] font-bold">
+                {{ ec.resultadoValoracion === 'SUFICIENTE' ? 'Elementos suficientes' : ec.resultadoValoracion === 'INSUFICIENTE' ? 'Elementos insuficientes' : 'Investigación adicional' }}
+              </span>
+            </div>
+
+            <p class="text-xs font-semibold text-slate-800 leading-relaxed">{{ ec.descripcion }}</p>
+            
+            <div class="text-[10px] text-slate-600 bg-white border border-slate-150 rounded-lg p-2 leading-relaxed" *ngIf="ec.analisisJustificacion">
+              <b class="text-indigo-700">Aporte procesal:</b> {{ ec.analisisJustificacion }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

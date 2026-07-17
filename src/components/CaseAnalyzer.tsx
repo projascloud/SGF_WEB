@@ -632,20 +632,6 @@ export default function CaseAnalyzer({ caseData, onChange, onSave }: CaseAnalyze
 
               {/* Time Remaining Metric */}
               <div className="space-y-3 pt-2">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-3 bg-slate-50 rounded-lg text-center">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Años de Vigencia</div>
-                    <div className="text-xl font-black text-slate-800">
-                      {calculatedPrescripcion.estaPrescrito ? '0.00' : `${calculatedPrescripcion.añosRestantes} años`}
-                    </div>
-                  </div>
-                  <div className="p-3 bg-slate-50 rounded-lg text-center">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Días Restantes</div>
-                    <div className="text-xl font-black text-slate-800">
-                      {calculatedPrescripcion.estaPrescrito ? '0' : `${calculatedPrescripcion.díasRestantes} días`}
-                    </div>
-                  </div>
-                </div>
                 <div className="p-3 bg-slate-50 rounded-lg text-center border border-slate-100">
                   <div className="text-[10px] uppercase font-bold text-slate-450 mb-0.5">Vigencia (días / mes / año)</div>
                   <div className="text-sm font-bold text-indigo-900 font-mono">

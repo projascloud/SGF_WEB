@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta charset="utf-8">
+  <title>Informe Ejecutivo - SIA-CT</title>
+  <!--[if gte mso 9]>
+  <xml>
+    <w:WordDocument>
+      <w:View>Print</w:View>
+      <w:Zoom>100</w:Zoom>
+      <w:DoNotOptimizeForBrowser/>
+    </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <style>
+    @page {
+      size: 8.5in 11in;
+      margin: 1.0in 1.0in 1.0in 1.0in;
+    }
+    body {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+    }
+    .header-box {
+      border: 1.5pt solid #0f172a;
+      padding: 18px;
+      background-color: #f8fafc;
+      margin-bottom: 25pt;
+    }
+    .header-title {
+      color: #0f172a;
+      font-size: 20pt;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 10pt;
+      text-transform: uppercase;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 10px;
+    }
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10pt;
+    }
+    .meta-table td {
+      border: none !important;
+      padding: 4px 0;
+      font-size: 10.5pt;
+    }
+    .meta-label {
+      font-weight: bold;
+      color: #475569;
+      width: 30%;
+    }
+    .meta-value {
+      color: #0f172a;
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 16pt;
+      font-weight: bold;
+      border-bottom: 1.5pt solid #0f172a;
+      padding-bottom: 4px;
+      margin-top: 24pt;
+      margin-bottom: 12pt;
+    }
+    h2 {
+      color: #1e3a8a;
+      font-size: 13pt;
+      font-weight: bold;
+      margin-top: 18pt;
+      margin-bottom: 8pt;
+      border-bottom: 0.75pt solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+    h3 {
+      color: #2563eb;
+      font-size: 11pt;
+      font-weight: bold;
+      margin-top: 12pt;
+      margin-bottom: 6pt;
+    }
+    p {
+      font-size: 11pt;
+      margin-top: 0;
+      margin-bottom: 10pt;
+      text-align: justify;
+    }
+    ul, ol {
+      margin-top: 0;
+      margin-bottom: 10pt;
+      padding-left: 20pt;
+    }
+    li {
+      font-size: 11pt;
+      margin-bottom: 4pt;
+      text-align: justify;
+    }
+    .highlight-box {
+      border-left: 3.5pt solid #3b82f6;
+      padding: 10px 15px;
+      background-color: #eff6ff;
+      margin-top: 12pt;
+      margin-bottom: 12pt;
+    }
+    .highlight-box p {
+      margin: 0;
+      font-style: italic;
+      color: #1e40af;
+    }
+    .alert-box {
+      border-left: 3.5pt solid #e11d48;
+      padding: 10px 15px;
+      background-color: #fff1f2;
+      margin-top: 12pt;
+      margin-bottom: 12pt;
+    }
+    .alert-box p {
+      margin: 0;
+      color: #9f1239;
+      font-weight: 500;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12pt;
+      margin-bottom: 16pt;
+    }
+    table.data-table th {
+      background-color: #0f172a;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 10pt;
+      border: 1px solid #1e293b;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    table.data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      font-size: 10pt;
+      vertical-align: top;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 8.5pt;
+      font-weight: bold;
+      border-radius: 4px;
+      background-color: #f1f5f9;
+      color: #334155;
+    }
+    .footer-note {
+      font-size: 9pt;
+      color: #64748b;
+      text-align: center;
+      margin-top: 40pt;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-box">
+    <div class="header-title">Informe Técnico Ejecutivo de Viabilidad</div>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 15px; color: #475569;">
+      SISTEMA INTELIGENTE DE ALERTAS DE PRESCRIPCIÓN Y CONTROL DE TIPICIDAD (SIA-CT)
+    </p>
+    <table class="meta-table">
+      <tr>
+        <td class="meta-label">Para:</td>
+        <td class="meta-value">Distrito Fiscal - Ministerio Público - Fiscalía de la Nación del Perú</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Atención:</td>
+        <td class="meta-value">Despachos Fiscales Penales y Unidades de Tecnologías de la Información</td>
+      </tr>
+      <tr>
+        <td class="meta-label">De:</td>
+        <td class="meta-value">Director de Proyectos de TI / Gestor de Proyecto (Project Manager)</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Fecha:</td>
+        <td class="meta-value">30 de junio de 2026</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Asunto:</td>
+        <td class="meta-value">Arquitectura de Requerimientos y Viabilidad de Desarrollo para el SIA-CT</td>
+      </tr>
+      <tr>
+        <td class="meta-label">Clasificación:</td>
+        <td class="meta-value"><span class="badge" style="background-color: #fee2e2; color: #991b1b;">RESERVADO - USO INTERNO</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <h1>1. Resumen Ejecutivo</h1>
+  <p>
+    El presente documento expone las especificaciones de negocio, arquitectura funcional y requerimientos técnicos necesarios para la ejecución y desarrollo del <b>Sistema Inteligente de Alertas de Prescripción y Control de Tipicidad (SIA-CT)</b>. Este sistema de información está diseñado para ser una herramienta asistencial crítica para los despachos fiscales de la Nación. Su objetivo es doble: automatizar de forma determinista el control de plazos procesales y plazos de prescripción penal, y proporcionar un motor de inteligencia artificial (IA) con procesamiento de lenguaje natural (PLN) para estructurar dogmáticamente la tipicidad penal y parametrizar los medios probatorios.
+  </p>
+  <div class="highlight-box">
+    <p>
+      <b>Visión Tecnológico-Legal:</b> Descargar la carga operativa del fiscal mediante automatización rigurosa, garantizando de manera irrestricta el debido proceso bajo el principio fundamental de control humano (human-in-the-loop).
+    </p>
+  </div>
+
+  <h1>2. Arquitectura de Módulos Funcionales</h1>
+  <p>
+    El SIA-CT se compone de tres núcleos funcionales interconectados, diseñados para abarcar todo el ciclo de calificación inicial de la denuncia y el monitoreo del plazo procesal.
+  </p>
+
+  <h2>Módulo A: Alertas de Prescripción y Monitoreo de Plazos Procesales</h2>
+  <p>
+    Este módulo opera sobre reglas lógicas puramente deterministas de la dogmática penal peruana, eliminando cualquier margen de incertidumbre interpretativa mediante algoritmos exactos de cálculo procesal:
+  </p>
+  <ul>
+    <li><b>Cálculo de Prescripción Ordinaria y Extraordinaria:</b> Automatización fundamentada en el artículo 80 (límite ordinario equivalente a la pena máxima del delito) y el artículo 83 (límite extraordinario equivalente al plazo ordinario más una mitad adicional) del Código Penal.</li>
+    <li><b>Cálculo de Reducción por Edad (Art. 81 CP):</b> Detección de imputados de responsabilidad restringida (mayores de 18 y menores de 21 años, o mayores de 65 años de edad al momento de cometer el ilícito), reduciendo a la mitad los plazos de prescripción de forma automática.</li>
+    <li><b>Duplicidad de Plazos (Art. 41 de la Constitución):</b> Identificación de delitos cometidos contra el patrimonio del Estado o contra organismos asistenciales, perpetrados por funcionarios o servidores públicos, aplicando de forma sistemática la duplicidad del plazo de prescripción.</li>
+    <li><b>Regulación por Ley N° 31751 (Ley de Suspensión):</b> Configuración automatizada de la suspensión de prescripción por formalización de la investigación preparatoria, estableciendo un límite máximo de un (01) año, tras el cual se reanuda el conteo del plazo de prescripción extraordinaria.</li>
+    <li><b>Monitoreo Dinámico de Plazos Procesales:</b> Seguimiento en tiempo real de los plazos de Diligencias Preliminares e Investigación Preparatoria, alertando de forma visual (semáforos de alerta) según el tipo de caso (Simple: 60/120 días; Complejo: 8 meses; Crimen Organizado: 36 meses), incluyendo el cómputo de prórrogas autorizadas.</li>
+  </ul>
+
+  <h2>Módulo B: Control de Tipicidad de Casos (Motor de IA)</h2>
+  <p>
+    Este módulo implementa algoritmos de Procesamiento de Lenguaje Natural (PLN) y modelos fundacionales para estructurar la calificación jurídica y combatir la saturación fiscal. Su funcionamiento comprende la siguiente secuencia de etapas lógicas:
+  </p>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 25%">Etapa del Modelo</th>
+        <th style="width: 45%">Descripción Funcional</th>
+        <th style="width: 30%">Tecnología Clave</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>1. Filtro Inicial de Atipicidad</b></td>
+        <td>Análisis automatizado de la denuncia escrita para descartar hechos con relevancia estrictamente civil, administrativa o manifiestamente atípicos. Permite archivar preliminarmente las causas que no constituyen delito penal.</td>
+        <td>Clasificador binario semántico / Modelos de Embeddings (Gemini embeddings)</td>
+      </tr>
+      <tr>
+        <td><b>2. Extracción de Datos Críticos</b></td>
+        <td>Aislamiento automático de variables críticas: fechas exactas (establecimiento del <i>dies a quo</i>), locaciones geográficas, montos de afectación patrimonial, identidades e historial de las partes.</td>
+        <td>Reconocimiento de Entidades Nombradas (NER) / Estructuración JSON mediante LLM</td>
+      </tr>
+      <tr>
+        <td><b>3. Análisis Lingüístico y Verbos Rectores</b></td>
+        <td>Procesamiento semántico del texto para identificar preposiciones fácticas clave. Aisla los <b>verbos rectores</b> enunciados en el relato de hechos (ej. "apropiarse", "inducir", "solicitar", "ofrecer") y los contrasta con los verbos del tipo penal.</td>
+        <td>Análisis de Dependencia Sintáctica / Modelamiento de Tokens de Verbo</td>
+      </tr>
+      <tr>
+        <td><b>4. Identificación de Patrones Criminales</b></td>
+        <td>Mapeo de códigos operativos y <i>modus operandi</i> recurrentes en la narración de los hechos. Compara patrones históricos con bases de datos criminales activas para detectar actividades sistemáticas.</td>
+        <td>Algoritmos de Agrupación (Clustering) y Búsqueda Vectorial por Modus Operandi</td>
+      </tr>
+      <tr>
+        <td><b>5. Asociación por Vinculación</b></td>
+        <td>Conexión automática de los sujetos (imputados, agraviados y empresas fachada) con carpetas fiscales preexistentes, revelando vinculaciones no evidentes de criminalidad organizada o reincidencia.</td>
+        <td>Bases de Datos de Grafos (Neo4j / NetworkX) / Análisis de Redes de Enlace</td>
+      </tr>
+      <tr>
+        <td><b>6. Análisis de Tipicidad Objetivo-Subjetiva</b></td>
+        <td>Contraste automático del cuadro de proposiciones fácticas extraídas contra los elementos normativos del tipo penal seleccionado del Código Penal Peruano.</td>
+        <td>Matriz de Coincidencia Fáctico-Jurídica</td>
+      </tr>
+      <tr>
+        <td><b>7. Estructuración Dogmática Digital</b></td>
+        <td>Verificación sistemática de la concurrencia obligatoria de los elementos dogmáticos:
+          <ul>
+            <li><b>Sujetos:</b> Activo (común/especial) y Pasivo.</li>
+            <li><b>Conducta:</b> Acción u Omisión.</li>
+            <li><b>Objeto Material:</b> Elemento físico/patrimonial sobre el cual recae la conducta.</li>
+          </ul>
+        </td>
+        <td>Validación de Esquema Dogmático Penal asistido por RAG</td>
+      </tr>
+      <tr>
+        <td><b>8. Sugerencia de Subsunción</b></td>
+        <td>Propuesta algorítmica de los tipos penales específicos más probables, asignando un porcentaje de confianza semántica y mostrando precedentes jurisprudenciales vinculantes.</td>
+        <td>Sistema de RAG (Generación Aumentada por Recuperación) / Base de Datos Judicial</td>
+      </tr>
+      <tr>
+        <td><b>9. Control Humano Garantizado</b></td>
+        <td>Garantía ineludible del debido proceso. El sistema presenta la subsunción como una <b>propuesta editable</b>. El fiscal valida, corrige o complementa la calificación jurídica, firmando digitalmente la decisión.</td>
+        <td>Interfaz de Validación Humana (Human-in-the-Loop Workflow)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Módulo C: Parámetros de Calificación de la Prueba</h2>
+  <p>
+    Para asegurar que la Teoría del Caso formulada por el fiscal soporte las etapas de Control de Acusación y Juicio Oral, el sistema califica la suficiencia y pertinencia de los elementos de convicción aportados mediante cinco reglas métricas:
+  </p>
+  <ol>
+    <li><b>Pertinencia (Relación Directa):</b> El sistema analiza semánticamente si el medio de prueba ofrecido (ej. pericia contable, testimonial) guarda vinculación fáctica directa con el hecho constitutivo del delito investigado.</li>
+    <li><b>Utilidad (Aporte de Certeza):</b> Evaluación del nivel de certeza que el medio probatorio aporta a la carpeta. Descarta elementos irrelevantes que no colaboren con el esclarecimiento de la verdad jurídica del caso histórico.</li>
+    <li><b>Conducencia (Idoneidad Procesal):</b> Control del cumplimiento estricto de las exigencias procesales para la validez de la prueba (ej. control del levantamiento de secreto bancario con orden judicial, cadena de custodia, actas firmadas sin vicios).</li>
+    <li><b>Necesidad (Indispensabilidad):</b> Verificación de cobertura probatoria. El sistema detecta si existen vacíos críticos en la acreditación de alguno de los elementos del tipo penal (ej. imputar estafa sin haber aportado el medio probatorio que acredite el engaño previo).</li>
+    <li><b>No Sobreabundancia (Optimización):</b> Detección automática de duplicidad probatoria innecesaria. Emite alertas cuando se registran múltiples medios de convicción dirigidos a probar exactamente la misma proposición fáctica, promoviendo la simplificación y celeridad procesal.</li>
+  </ol>
+
+  <h1>3. Requerimientos Técnicos e Infraestructura Tecnológica</h1>
+  <p>
+    Para garantizar la escalabilidad, seguridad informática y alto rendimiento del sistema SIA-CT en la red corporativa del Ministerio Público, se propone la siguiente arquitectura de software de última generación:
+  </p>
+
+  <h3>Tecnología de la Solución (Stack Recomendado):</h3>
+  <ul>
+    <li><b>Frontend de Usuario:</b> Desarrollado en <b>React 19</b> y <b>Vite</b>, empleando <b>Tailwind CSS</b> para un diseño de interfaz modular y limpio (Dashboard de tipo bento, adaptativo y responsivo).</li>
+    <li><b>Backend API:</b> Implementado en <b>Python (FastAPI)</b> o <b>Node.js (Express con TypeScript)</b>. La opción de Python es preferida para el procesamiento de IA debido a su ecosistema nativo de ciencia de datos.</li>
+    <li><b>Base de Datos Relacional:</b> <b>PostgreSQL (Cloud SQL)</b> para almacenar de manera consistente los registros de las carpetas, el catálogo unificado de delitos, plazos procesales legales e históricos. Se utilizará la extensión <b>pgvector</b> para búsquedas rápidas por similitud semántica de casos.</li>
+    <li><b>Base de Datos Documental y Cache:</b> <b>Google Cloud Firestore / Redis</b> para la persistencia ágil de flujos de trabajo, estados intermedios del análisis lingüístico y sincronización en tiempo real del semáforo de plazos.</li>
+    <li><b>Procesamiento de Lenguaje Natural (PLN) e Inteligencia Artificial:</b> Integración del SDK oficial de Google <b>@google/genai</b> para consumir modelos fundacionales de la familia <b>Gemini (Gemini 2.5 Flash / Pro)</b> de forma server-side protegida. Para la estructuración dogmática y verbos rectores, se implementará un flujo de <b>RAG (Generación Aumentada por Recuperación)</b> conectado a un almacén vectorial que aloje el Código Penal, el Código Procesal Penal, Acuerdo Plenarios y Casaciones vinculantes de la Corte Suprema.</li>
+  </ul>
+
+  <div class="alert-box">
+    <p>
+      <b>Directiva Crítica de Seguridad:</b> De acuerdo con la Ley de Protección de Datos Personales peruana y la confidencialidad de la investigación fiscal (Art. 324 del Código Procesal Penal), todas las credenciales, llaves de API de Gemini y datos de carpetas penales deben ser procesados mediante rutas protegidas del servidor (server-side proxies), prohibiendo rigurosamente la exposición de API Keys en el cliente.
+    </p>
+  </div>
+
+  <h1>4. Perfiles del Equipo de Desarrollo (Roles Clave)</h1>
+  <p>
+    Para llevar a cabo con éxito este proyecto en un plazo estimado de 24 semanas, es fundamental constituir un equipo multidisciplinario (célula ágil) compuesto por los siguientes perfiles:
+  </p>
+  <ol>
+    <li><b>Gestor de Proyecto (Project Manager / Scrum Master):</b> Responsable de la planificación de sprints, control de riesgos, remoción de impedimentos y cumplimiento de hitos.</li>
+    <li><b>Ingeniero Legal (Legal Engineer) / Analista de Negocio Legal:</b> Profesional de derecho con formación tecnológica, encargado de traducir las reglas de la dogmática penal (prescripciones, tipicidad, parámetros probatorios) a lógica estructurada (pseudocódigo/reglas de negocio) utilizable por los desarrolladores.</li>
+    <li><b>Científico de Datos / Especialista en PLN (ML Engineer):</b> Encargado de la calibración de prompts, la arquitectura RAG, la extracción de entidades (NER), detección de verbos rectores y afinamiento de algoritmos de tipicidad semántica.</li>
+    <li><b>Desarrollador Backend Senior:</b> Responsable de la construcción de APIs seguras, la integración con sistemas del Ministerio Público (SGF - Sistema de Gestión Fiscal), bases de datos y la implementación determinista de reglas procesales.</li>
+    <li><b>Desarrollador Frontend UX/UI:</b> Especializado en React para crear interfaces ágiles, visualizaciones claras del semáforo de alertas, flujos de arrastre de carpetas de pruebas y validaciones humanas interactivas.</li>
+    <li><b>Analista de Calidad (QA Specialist):</b> Diseñador de pruebas unitarias legales e informáticas, asegurando que los cálculos de plazos arrojen desviaciones cero de error respecto de la ley.</li>
+  </ol>
+
+  <h1>5. Plan de Implementación y Cronograma Estimado</h1>
+  <p>
+    El desarrollo se estructurará bajo el marco de trabajo SCRUM, completando el producto mínimo viable en un periodo total de <b>24 semanas</b>:
+  </p>
+  <ul>
+    <li><b>Fase 1: Requerimientos, Modelado Dogmático e Ingeniería de Datos (Semanas 1-4)</b><br />
+    Levantamiento de especificaciones, modelamiento detallado de tipos penales críticos del catálogo fiscal e integración inicial de RAG procesal.</li>
+    <li><b>Fase 2: Construcción del Núcleo Determinista de Plazos y Prescripciones (Semanas 5-8)</b><br />
+    Desarrollo y testeo riguroso del algoritmo de prescripciones considerando la Ley 31751, duplicidad del Art. 41 y atenuaciones del Art. 81.</li>
+    <li><b>Fase 3: Desarrollo de Inteligencia Artificial para Tipicidad y PLN (Semanas 9-16)</b><br />
+    Entrenamiento y conexión del clasificador de atipicidad preliminar, extracción de variables críticas por NER, y mapeo estructurado de verbos rectores.</li>
+    <li><b>Fase 4: Desarrollo de Parametrización Probatoria (Semanas 17-20)</b><br />
+    Implementación del motor de calificación probatoria: reglas de pertinencia, conducencia, utilidad, necesidad y no sobreabundancia.</li>
+    <li><b>Fase 5: Integración de Sistemas, Pruebas y Piloto en Despacho (Semanas 21-24)</b><br />
+    Integración de API con base de datos real en Cloud SQL, pruebas de estrés con carpetas fiscales reales (anonimizadas), capacitación a fiscales piloto y pase a producción.</li>
+  </ul>
+
+  <h1>6. Conclusiones y Viabilidad</h1>
+  <p>
+    El desarrollo del <b>SIA-CT</b> es plenamente viable tecnológica y jurídicamente. Representa una innovación disruptiva en el sector público de administración de justicia penal en el Perú. Al delegar las tareas mecánicas de cálculo matemático-procesal y la estructuración lingüística primaria en un sistema inteligente, se le restituye al fiscal de la Nación su rol fundamental de análisis crítico de alto nivel.
+  </p>
+  <p>
+    La inclusión de la etapa de <b>Control Humano</b> blinda el sistema contra contingencias constitucionales, asegurando que la IA actúe de manera exclusiva como un asistente copiloto de alta fidelidad, disminuyendo en un estimado de 45% el tiempo de calificación inicial de denuncias penales ordinarias y erradicando en un 100% los archivos de casos por prescripción no detectada.
+  </p>
+
+  <div class="footer-note">
+    Documento autogenerado para el Distrito Fiscal del Ministerio Público de la Nación del Perú.<br />
+    &copy; 2026 SIA-CT Project Management Office. Todos los derechos reservados.
+  </div>
+
+</body>
+</html>
